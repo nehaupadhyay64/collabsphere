@@ -19,7 +19,7 @@ export const createNote = createAsyncThunk(
   "notes/create",
   async ({ projectId, title, content }, { rejectWithValue }) => {
     try {
-      const { data } = await api.post(`/projects/${projectId}/notes`, { title, content });
+      const { data } = await api.post(`/api/projects/${projectId}/notes`, { title, content });
       return data;
     } catch (err) {
       return rejectWithValue(errMsg(err));
@@ -31,7 +31,7 @@ export const updateNote = createAsyncThunk(
   "notes/update",
   async ({ id, title, content }, { rejectWithValue }) => {
     try {
-      const { data } = await api.put(`/notes/${id}`, { title, content });
+      const { data } = await api.put(`/api/notes/${id}`, { title, content });
       return data;
     } catch (err) {
       return rejectWithValue(errMsg(err));
