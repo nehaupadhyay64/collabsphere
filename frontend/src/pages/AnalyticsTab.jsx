@@ -6,7 +6,7 @@ import AnalyticsSummary from "../components/AnalyticsSummary";
 
 export default function AnalyticsTab() {
   const { id } = useParams();
-  const { data, loading, error } = useFetch(`/projects/${id}/analytics`);
+  const { data, loading, error } = useFetch(`/api/projects/${id}/analytics`);
 
   // useMemo: data badle tabhi dobara calculate hoga
   const topContributor = useMemo(() => {
