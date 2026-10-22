@@ -7,7 +7,7 @@ export const fetchNotes = createAsyncThunk(
   "notes/fetchAll",
   async (projectId, { rejectWithValue }) => {
     try {
-      const { data } = await api.get(`/projects/${projectId}/notes`);
+      const { data } = await api.get(`/api/projects/${projectId}/notes`);
       return data;
     } catch (err) {
       return rejectWithValue(errMsg(err));
@@ -43,7 +43,7 @@ export const deleteNote = createAsyncThunk(
   "notes/delete",
   async (id, { rejectWithValue }) => {
     try {
-      await api.delete(`/notes/${id}`);
+      await api.delete(`/api/notes/${id}`);
       return id;
     } catch (err) {
       return rejectWithValue(errMsg(err));
