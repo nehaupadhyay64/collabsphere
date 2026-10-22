@@ -5,7 +5,7 @@ import Spinner from "../components/Spinner";
 
 export default function PublicProject() {
   const { shareId } = useParams();
-  const { data, loading, error } = useFetch(`/projects/public/${shareId}`);
+  const { data, loading, error } = useFetch(`/api/projects/public/${shareId}`);
 
   if (loading) return <Spinner />;
   if (error) return <p style={{ color: "red", textAlign: "center", marginTop: 60 }}>{error}</p>;
