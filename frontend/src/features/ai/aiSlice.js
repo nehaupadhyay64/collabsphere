@@ -6,7 +6,7 @@ export const askAI = createAsyncThunk(
   "ai/ask",
   async ({ type, text }, { rejectWithValue }) => {
     try {
-      const { data } = await api.post(`/gemini/${type}`, { text });
+      const { data } = await api.post(`/api/gemini/${type}`, { text });
       return data.result;
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || "AI request failed");
