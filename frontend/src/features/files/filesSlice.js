@@ -7,7 +7,7 @@ export const fetchFiles = createAsyncThunk(
   "files/fetchAll",
   async (projectId, { rejectWithValue }) => {
     try {
-      const { data } = await api.get(`/projects/${projectId}/files`);
+      const { data } = await api.get(`/api/projects/${projectId}/files`);
       return data;
     } catch (err) {
       return rejectWithValue(errMsg(err));
@@ -21,12 +21,13 @@ export const uploadFile = createAsyncThunk(
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const { data } = await api.post(`/projects/${projectId}/files`, formData);
+      const { data } = await api.post(`/api/projects/${projectId}/files`, formData);
       return data;
     } catch (err) {
       return rejectWithValue(errMsg(err));
     }
   }
+  
 );
 
 const filesSlice = createSlice({
