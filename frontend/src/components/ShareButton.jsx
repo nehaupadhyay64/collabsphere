@@ -14,7 +14,7 @@ export default function ShareButton({ project }) {
   const toggle = async () => {
     setError("");
     try {
-      const { data } = await api.patch(`/projects/${project._id}/share`);
+      const { data } = await api.patch(`/api/projects/${project._id}/share`);
       setIsPublic(data.isPublic);
       setShareId(data.shareId); // backend ka naya shareId
     } catch (err) {
