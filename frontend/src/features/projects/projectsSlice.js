@@ -7,7 +7,7 @@ export const fetchProjects = createAsyncThunk(
   "projects/fetchAll",
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await api.get("/projects");
+      const { data } = await api.get("/api/projects");
       return data;
     } catch (err) {
       return rejectWithValue(errMsg(err));
@@ -19,7 +19,7 @@ export const createProject = createAsyncThunk(
   "projects/create",
   async (body, { rejectWithValue }) => {
     try {
-      const { data } = await api.post("/projects", body);
+      const { data } = await api.post("/api/projects", body);
       return data;
     } catch (err) {
       return rejectWithValue(errMsg(err));
@@ -31,7 +31,7 @@ export const fetchProjectById = createAsyncThunk(
   "projects/fetchOne",
   async (id, { rejectWithValue }) => {
     try {
-      const { data } = await api.get(`/projects/${id}`);
+      const { data } = await api.get(`/api/projects/${id}`);
       return data;
     } catch (err) {
       return rejectWithValue(errMsg(err));
@@ -43,7 +43,7 @@ export const addMember = createAsyncThunk(
   "projects/addMember",
   async ({ id, email }, { rejectWithValue }) => {
     try {
-      const { data } = await api.post(`/projects/${id}/members`, { email });
+      const { data } = await api.post(`/api/projects/${id}/members`, { email });
       return data;
     } catch (err) {
       return rejectWithValue(errMsg(err));
